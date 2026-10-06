@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Hacer Backtesting de una Estrategia de Trading: Guía Cuantitativa | TradeMetrics</title>
+  <meta name="description" content="Aprende a validar sistemas de trading sin autoengaño: sesgo de sobreajuste (overfitting), pruebas out-of-sample, modelado de slippage y comisiones, y ratio de Sharpe.">
+  <link rel="canonical" href="https://trademetrics.info/articulos/como-hacer-backtesting-estrategia-trading.html">
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo Hacer Backtesting de una Estrategia de Trading: Guía Cuantitativa",
+    "description": "Metodología científica para someter estrategias algorítmicas y manuales a pruebas de estrés histórico rigurosas.",
+    "author": {
+      "@type": "Person",
+      "name": "Carlos Mendoza, M.Sc.",
+      "jobTitle": "Analista Cuantitativo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TradeMetrics",
+      "url": "https://trademetrics.info/"
+    },
+    "datePublished": "2026-03-30",
+    "dateModified": "2026-04-05"
+  }
+  </script>
+</head>
+<body>
+
+  <div class="risk-disclaimer-top">
+    <strong>AVISO DE RIESGO:</strong> El rendimiento simulado en backtesting no es una garantía de resultados futuros. Los mercados cambian de régimen de volatilidad continuamente.
+  </div>
+
+  <header class="header-main">
+    <div class="navbar">
+      <div class="logo-area">
+        <div class="logo-icon">TM</div>
+        <a href="../index.html" class="brand-text">Trade<span>Metrics</span></a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Abrir menú">&equiv;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Terminal</a></li>
+          <li><a href="../index.html#articulos" class="active">Artículos</a></li>
+          <li><a href="../herramientas/index.html" class="nav-btn-tool">&Sigma; Calculadoras</a></li>
+          <li><a href="../sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; font-family: monospace;">
+      <a href="../index.html">Inicio</a> &gt; <a href="../index.html#articulos">Artículos</a> &gt; <span>Guía de Backtesting</span>
+    </nav>
+
+    <div class="article-header">
+      <span class="card-tag">Ingeniería Financiera</span>
+      <h1>Backtesting Riguroso: Cómo Probar una Estrategia de Trading sin Caer en el Autoengaño del Overfitting</h1>
+      
+      <div class="author-box">
+        <div class="author-avatar">CM</div>
+        <div class="author-details">
+          <strong>Carlos Mendoza, M.Sc.</strong> (Ingeniería Cuantitativa)
+          <p>Especialista en modelado estocástico y validación cruzada de algoritmos. &bull; Actualizado: Abril 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense Slot In-Article Top -->
+    <div id="ad-article-top" data-ad-slot="ARTICLE_TOP" class="ad-slot-container"></div>
+
+    <div class="article-content">
+      <p>
+        Cualquier operador puede conectar un gráfico histórico, añadir cinco indicadores y optimizar sus parámetros hasta obtener una curva de capital que parece una línea recta ascendente con un 95% de acierto. Sin embargo, en el 99% de los casos, esa estrategia fallará estrepitosamente en cuanto comience a operar en tiempo real con dinero real. Este fenómeno se denomina <strong>sobreajuste (overfitting o curve-fitting)</strong>.
+      </p>
+
+      <h2>1. ¿Qué es el Sobreajuste y Por Qué Mata las Cuentas?</h2>
+      <p>
+        El sobreajuste ocurre cuando un sistema memoriza el "ruido aleatorio" del pasado en lugar de capturar una ineficiencia estructural o ventaja estadística genuina del mercado. Si tu sistema solo funciona cuando la media móvil tiene exactamente un periodo de 21,3 y el RSI está en 32,1, no tienes una ventaja: tienes una coincidencia matemática.
+      </p>
+
+      <!-- AdSense Slot In-Article Middle -->
+      <div id="ad-article-mid" data-ad-slot="ARTICLE_MID" class="ad-slot-container"></div>
+
+      <h2>2. El Protocolo Científico: Muestra In-Sample vs Out-of-Sample</h2>
+      <p>
+        Para validar un sistema de forma profesional se debe dividir el histórico de datos en dos bloques estancos:
+      </p>
+      <ul>
+        <li><strong>Datos In-Sample (70% del histórico):</strong> El periodo donde se formulan las hipótesis, se calibran los parámetros de entrada y se diseña el sistema (por ejemplo, datos de 2018 a 2023).</li>
+        <li><strong>Datos Out-of-Sample (30% del histórico):</strong> El periodo que el algoritmo jamás ha "visto" durante su optimización (por ejemplo, datos de 2024 a 2026). Si el sistema sigue siendo rentable y mantiene métricas similares en esta fase a ciegas, la estrategia posee robustez real.</li>
+      </ul>
+
+      <h2>3. Variables Friccionales Ineludibles: Spread, Comisiones y Slippage</h2>
+      <p>
+        Un backtest que no descuente los costes reales de fricción es papel mojado. Para que los resultados sean fiables, debes incorporar:
+      </p>
+      <ul>
+        <li><strong>Comisión por Lote / Contrato:</strong> Coste fijo por operación cobrado por el broker (ej. 5-7 USD por lote en Forex o 1,50 USD por contrato de futuros).</li>
+        <li><strong>Spread Medio:</strong> El diferencial entre precio Bid y Ask durante las horas de apertura de tu orden.</li>
+        <li><strong>Deslizamiento (Slippage):</strong> En eventos de alta volatilidad (publicación de tipos del FOMC o NFP), el precio de ejecución puede situarse 2 a 5 pips peor que el Stop Loss teórico.</li>
+      </ul>
+
+      <h2>4. Métricas Clave Más Allá del Porcentaje de Acierto (Win Rate)</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; color: #cbd5e1;">
+        <thead>
+          <tr style="background: #111827; text-align: left;">
+            <th style="padding: 10px; border: 1px solid #374151;">Métrica</th>
+            <th style="padding: 10px; border: 1px solid #374151;">Valor Saludable Mínimo</th>
+            <th style="padding: 10px; border: 1px solid #374151;">Significado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #374151; font-weight: 600;">Profit Factor</td>
+            <td style="padding: 10px; border: 1px solid #374151; color: #10b981;">&gt; 1.50</td>
+            <td style="padding: 10px; border: 1px solid #374151;">Beneficios brutos divididos entre pérdidas brutas acumuladas.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #374151; font-weight: 600;">Sharpe Ratio</td>
+            <td style="padding: 10px; border: 1px solid #374151; color: #38bdf8;">&gt; 1.0 (Anual)</td>
+            <td style="padding: 10px; border: 1px solid #374151;">Rendimiento ajustado al riesgo (volatilidad de la curva).</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #374151; font-weight: 600;">Max Drawdown</td>
+            <td style="padding: 10px; border: 1px solid #374151; color: #fbbf24;">&lt; 15% - 20%</td>
+            <td style="padding: 10px; border: 1px solid #374151;">Caída máxima desde el pico de capital anterior.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- AdSense Slot In-Article Bottom -->
+    <div id="ad-article-bottom" data-ad-slot="ARTICLE_BOTTOM" class="ad-slot-container"></div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-bottom">
+      &copy; 2026 TradeMetrics Quantitative Research. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>

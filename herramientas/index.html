@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Tamaño de Posición y Riesgo | TradeMetrics Lab</title>
+  <meta name="description" content="Calculadora avanzada de lotes, gestión de riesgo de cuenta, ratio beneficio/riesgo (R:R) y simulador de esperanza matemática para Forex, índices, acciones y criptomonedas.">
+  <link rel="canonical" href="https://trademetrics.info/herramientas/">
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Tamaño de Posición y Esperanza Matemática TradeMetrics",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="risk-disclaimer-top">
+    <strong>AVISO DE RIESGO:</strong> El dimensionamiento de posiciones es una herramienta de mitigación estadística, pero no elimina el riesgo de deslizamiento de precios (slippage) ni gaps en fines de semana.
+  </div>
+
+  <header class="header-main">
+    <div class="navbar">
+      <div class="logo-area">
+        <div class="logo-icon">TM</div>
+        <a href="../index.html" class="brand-text">Trade<span>Metrics</span></a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Abrir menú">&equiv;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Terminal</a></li>
+          <li><a href="../index.html#articulos">Artículos & Métricas</a></li>
+          <li><a href="index.html" class="active nav-btn-tool">&Sigma; Calculadoras de Riesgo</a></li>
+          <li><a href="../sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; font-family: monospace;">
+      <a href="../index.html">Inicio</a> &gt; <span>Herramientas Cuantitativas</span>
+    </nav>
+
+    <div class="article-header">
+      <span class="card-tag">Herramienta Interactiva</span>
+      <h1>Calculadora de Gestión de Capital y Esperanza Matemática</h1>
+      <p style="color: #94a3b8; font-size: 1.1rem;">
+        Determina con exactitud milimétrica la cantidad de contratos, lotes o acciones a comprar según tu tolerancia al riesgo, y calcula la viabilidad estadística a largo plazo de tu sistema.
+      </p>
+    </div>
+
+    <!-- AdSense Slot Top -->
+    <div id="ad-tool-top" data-ad-slot="HEADER_BANNER" class="ad-slot-container"></div>
+
+    <!-- Sección Herramienta 1 -->
+    <section class="calc-wrapper">
+      <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 1rem; border-left: 3px solid #00b0ff; padding-left: 0.6rem;">
+        1. Dimensionamiento de Posición (Position Sizing)
+      </h2>
+      <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem;">
+        La clave matemática para sobrevivir es ajustar el volumen al Stop Loss, y <strong>nunca mover el Stop Loss para ajustarlo al volumen</strong>.
+      </p>
+
+      <form id="position-calc-form" class="calc-grid">
+        <div class="form-group">
+          <label for="calc-balance">Balance Total de la Cuenta ($USD):</label>
+          <input type="number" id="calc-balance" value="25000" min="100" step="100">
+        </div>
+        <div class="form-group">
+          <label for="calc-risk-pct">Porcentaje de Riesgo Permitido (%):</label>
+          <input type="number" id="calc-risk-pct" value="1.0" min="0.1" max="10" step="0.1">
+        </div>
+        <div class="form-group">
+          <label for="calc-asset">Mercado / Instrumento:</label>
+          <select id="calc-asset">
+            <option value="forex">Forex (Pares de Divisas FX)</option>
+            <option value="stocks">Acciones al Contado / ETFs</option>
+            <option value="crypto">Criptoactivos / Futuros Perpetuos</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calc-entry">Precio de Entrada Previsto:</label>
+          <input type="number" id="calc-entry" value="1.0850" step="0.0001">
+        </div>
+        <div class="form-group">
+          <label for="calc-stoploss">Nivel de Invalidación (Stop Loss):</label>
+          <input type="number" id="calc-stoploss" value="1.0815" step="0.0001">
+        </div>
+        <div class="form-group">
+          <label for="calc-takeprofit">Nivel Objetivo (Take Profit):</label>
+          <input type="number" id="calc-takeprofit" value="1.0955" step="0.0001">
+        </div>
+      </form>
+
+      <div class="calc-results">
+        <div class="result-card">
+          <div class="label">Pérdida en Caso de Salto de SL ($)</div>
+          <div id="res-risk-cash" class="value danger">$250.00</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Volumen de Operación Calculado</div>
+          <div id="res-units" class="value neutral">0.71 Lotes (35 pips)</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Ratio Riesgo / Beneficio (R:R)</div>
+          <div id="res-rr" class="value">1 : 3.00</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Ganancia Neta si Toca TP</div>
+          <div id="res-potential-profit" class="value">+$750.00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Herramienta 2 -->
+    <section class="calc-wrapper">
+      <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 1rem; border-left: 3px solid #00e676; padding-left: 0.6rem;">
+        2. Simulador de Esperanza Matemática & Estimación de Rachas Negativas
+      </h2>
+      <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem;">
+        La esperanza matemática (\(E\)) dictamina si tu operativa sobrevivirá a la ley de los grandes números.
+      </p>
+
+      <form id="expectancy-calc-form" class="calc-grid">
+        <div class="form-group">
+          <label for="exp-winrate">Tasa de Acierto / Winrate (%):</label>
+          <input type="number" id="exp-winrate" value="45" min="5" max="95" step="1">
+        </div>
+        <div class="form-group">
+          <label for="exp-rr">Ratio R:R Promedio (Múltiplo de R):</label>
+          <input type="number" id="exp-rr" value="2.0" min="0.5" max="10" step="0.1">
+        </div>
+        <div class="form-group">
+          <label for="exp-trades">Muestra de Operaciones Proyectada:</label>
+          <input type="number" id="exp-trades" value="100" min="20" max="1000" step="10">
+        </div>
+      </form>
+
+      <div class="calc-results">
+        <div class="result-card">
+          <div class="label">Esperanza Matemática (E)</div>
+          <div id="res-expectancy" class="value">+0.35 R / op</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Racha Máxima Estimada de Pérdidas</div>
+          <div id="res-streak" class="value neutral">~8 pérdidas seguidas</div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 1rem; padding: 1rem; background: #0c121e; border: 1px solid #1e293b; border-radius: 4px; font-family: monospace; font-size: 0.9rem;">
+        <span style="color: #64748b;">Diagnóstico Estadístico del Algoritmo:</span><br>
+        <strong id="res-diagnosis" style="color: #00e676;">Excelente ventaja estadística cuantificable (Edge robusto)</strong>
+      </div>
+    </section>
+
+    <!-- Guía Explicativa Detallada E-E-A-T -->
+    <article class="article-body" style="margin-top: 3rem;">
+      <h2>Fundamentos Matemáticos del Dimensionamiento de Capital</h2>
+      <p>
+        En trading cuantitativo y discrecional, el tamaño de la posición no debe fijarse de forma intuitiva ni basándose en el capital nominal disponible. La fórmula maestra de asignación de lotes se define como:
+      </p>
+      
+      <div class="terminal-box">
+        <strong>Fórmula de Posición:</strong><br>
+        <code>Tamaño de Posición = (Capital de Cuenta &times; % de Riesgo) &divide; Distancia al Stop Loss</code>
+      </div>
+
+      <p>
+        Si un operador arriesga el 1% de una cuenta de $20,000, su pérdida máxima tolerada es de $200. Si su Stop Loss técnico (determinado por un soporte o un múltiplo de ATR - Average True Range) se encuentra a 40 pips de distancia, el valor por pip debe ser de $5. En el mercado Forex (EUR/USD), esto corresponde exactamente a 0.5 lotes estándar.
+      </p>
+
+      <h3>La Falacia del Alto Porcentaje de Acierto</h3>
+      <p>
+        Muchos traders novatos caen en la trampa de buscar sistemas con un 80% o 90% de operaciones ganadoras. En la práctica, tales métricas suelen enmascarar sistemas basados en martingalas o cuadrículas (grids) sin Stop Loss, los cuales acumulan pequeñas ganancias hasta que un solo movimiento adverso e inesperado (evento de Cisne Negro) pulveriza el 100% de la cuenta.
+      </p>
+      <p>
+        Un sistema con un 40% de acierto pero un ratio beneficio/riesgo de 1:2.5 genera un rendimiento positivo superior a lo largo de 100 operaciones que un sistema con 70% de aciertos pero un ratio de 0.5:1.
+      </p>
+    </article>
+
+    <!-- AdSense Slot Bottom -->
+    <div id="ad-tool-bottom" data-ad-slot="ARTICLE_INLINE" class="ad-slot-container"></div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>TradeMetrics</h4>
+        <p style="font-size: 0.85rem; color: #94a3b8;">
+          Herramientas matemáticas para el control de Drawdown y modelado de carteras de inversión.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="../index.html">Terminal Principal</a></li>
+          <li><a href="../index.html#articulos">Publicaciones</a></li>
+          <li><a href="index.html">Calculadora de Lotes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+          <li><a href="../politica-de-privacidad.html">Privacidad</a></li>
+          <li><a href="../politica-de-cookies.html">Cookies</a></li>
+          <li><a href="../terminos-y-condiciones.html">Términos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 TradeMetrics Quantitative Research. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        Utilizamos cookies analíticas y publicitarias mediante Google AdSense. Puedes aceptarlas para apoyar el contenido gratuito de nuestra plataforma.
+      </div>
+      <div class="cookie-actions">
+        <button id="cookie-reject" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Rechazar</button>
+        <button id="cookie-accept" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/ads-config.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

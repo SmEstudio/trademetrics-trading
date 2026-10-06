@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Soporte Metodológico | TradeMetrics</title>
+  <meta name="description" content="Ponte en contacto con el equipo de TradeMetrics para resolver dudas cuantitativas, enviar sugerencias de herramientas o solicitar revisiones analíticas.">
+  <link rel="canonical" href="https://trademetrics.info/contacto.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header-main">
+    <div class="navbar">
+      <div class="logo-area">
+        <div class="logo-icon">TM</div>
+        <a href="index.html" class="brand-text">Trade<span>Metrics</span></a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Abrir menú">&equiv;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Terminal</a></li>
+          <li><a href="index.html#articulos">Artículos</a></li>
+          <li><a href="herramientas/index.html" class="nav-btn-tool">&Sigma; Calculadoras</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="article-header">
+      <span class="card-tag">Canal Directo</span>
+      <h1>Contacto con el Equipo de TradeMetrics</h1>
+      <p style="color: #94a3b8; font-size: 1.1rem;">
+        Estamos disponibles para atender consultas sobre nuestras calculadoras, correcciones editoriales y colaboraciones académicas.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
+      <div class="calc-wrapper">
+        <h2 style="font-size: 1.3rem; color: #fff; margin-bottom: 1rem;">Envíanos un Mensaje</h2>
+        <form onsubmit="event.preventDefault(); alert('Gracias por tu mensaje. El equipo de TradeMetrics responderá a la brevedad posible.'); this.reset();">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="contact-name">Nombre Completo / Firma:</label>
+            <input type="text" id="contact-name" required placeholder="Ej. Javier Ramos">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="contact-email">Correo Electrónico Corporativo o Personal:</label>
+            <input type="email" id="contact-email" required placeholder="javier@ejemplo.com">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="contact-subject">Asunto:</label>
+            <select id="contact-subject">
+              <option value="metodologia">Duda sobre fórmulas y calculadoras</option>
+              <option value="sugerencia">Propuesta de nuevo módulo analítico</option>
+              <option value="prensa">Prensa o colaboración académica</option>
+              <option value="privacidad">Derechos RGPD / Datos personales</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="contact-message">Mensaje Detallado:</label>
+            <textarea id="contact-message" rows="5" required style="background: #090e17; border: 1px solid var(--border-color); color: #fff; padding: 0.8rem; border-radius: 4px; font-family: monospace; outline: none;"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Enviar Consulta Segura &rarr;</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="terminal-box">
+          <div class="terminal-box-title">Información de la Organización</div>
+          <p style="color: #cbd5e1; margin-bottom: 0.8rem;">
+            <strong>Razón Social:</strong> TradeMetrics Analytics Research SL<br>
+            <strong>Sede:</strong> Passeig de Gràcia 118, 08008 Barcelona, España<br>
+            <strong>Email Directo:</strong> contacto@trademetrics.info<br>
+            <strong>Horario de Atención:</strong> Lunes a Viernes, 08:30 - 17:30 (CET)
+          </p>
+          <div style="font-size: 0.82rem; color: #94a3b8; border-top: 1px solid #1e293b; padding-top: 0.8rem; margin-top: 0.8rem;">
+            <em>Aviso importante:</em> Por motivos regulatorios estrictos, nuestro equipo <strong>no ofrece ni responderá</strong> a solicitudes de señales de compra/venta ni análisis de activos específicos individualizados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-bottom">
+      &copy; 2026 TradeMetrics Quantitative Research.
+    </div>
+  </footer>
+
+  <script src="js/ads-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

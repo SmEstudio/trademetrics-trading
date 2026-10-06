@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradeMetrics | Análisis Cuantitativo, Gestión de Riesgo y Trading Profesional</title>
+  <meta name="description" content="Portal educativo independiente de trading profesional, gestión monetaria, cálculo de lotes, análisis cuantitativo y control de sesgos psicológicos en los mercados financieros.">
+  <meta name="keywords" content="trading, gestion de riesgo, calculadora de lotes, analisis tecnico, psicotrading, forex, futuros, acciones, backtesting">
+  <link rel="canonical" href="https://trademetrics.info/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23030712' stroke='%2310b981' stroke-width='6'/><text y='70' x='50' text-anchor='middle' font-family='monospace' font-weight='900' font-size='48' fill='%2310b981'>TM</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TradeMetrics",
+    "url": "https://trademetrics.info/",
+    "description": "Educación cuantitativa y herramientas de gestión de capital para operadores de mercados financieros.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "TradeMetrics Quantitative Research",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://trademetrics.info/favicon.ico"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Aviso de Riesgo Financiero Superior -->
+  <div class="risk-disclaimer-top">
+    <strong>AVISO DE RIESGO:</strong> Operar con instrumentos financieros derivados (CFDs, futuros, opciones y divisas) conlleva un alto riesgo de pérdida de capital debido al apalancamiento. El 74-89% de las cuentas minoristas pierden dinero. Este sitio web es estrictamente educativo y no ofrece asesoramiento de inversión.
+  </div>
+
+  <!-- Ticker Bar Simulada -->
+  <div class="ticker-wrap">
+    <div class="ticker-content">
+      <div class="ticker-item"><span class="symbol">EUR/USD</span> <span class="price">1.0842</span> <span class="change-up">+0.24%</span></div>
+      <div class="ticker-item"><span class="symbol">BTC/USD</span> <span class="price">67,410.00</span> <span class="change-up">+2.45%</span></div>
+      <div class="ticker-item"><span class="symbol">S&P 500</span> <span class="price">5,864.67</span> <span class="change-up">+0.41%</span></div>
+      <div class="ticker-item"><span class="symbol">XAU/USD (Oro)</span> <span class="price">2,721.40</span> <span class="change-up">+0.88%</span></div>
+      <div class="ticker-item"><span class="symbol">NASDAQ 100</span> <span class="price">20,380.10</span> <span class="change-down">-0.18%</span></div>
+      <div class="ticker-item"><span class="symbol">WTI Crudo</span> <span class="price">71.85</span> <span class="change-down">-1.12%</span></div>
+      <div class="ticker-item"><span class="symbol">USD/JPY</span> <span class="price">152.34</span> <span class="change-up">+0.32%</span></div>
+      <!-- Repetición para loop infinito -->
+      <div class="ticker-item"><span class="symbol">EUR/USD</span> <span class="price">1.0842</span> <span class="change-up">+0.24%</span></div>
+      <div class="ticker-item"><span class="symbol">BTC/USD</span> <span class="price">67,410.00</span> <span class="change-up">+2.45%</span></div>
+      <div class="ticker-item"><span class="symbol">S&P 500</span> <span class="price">5,864.67</span> <span class="change-up">+0.41%</span></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header-main">
+    <div class="navbar">
+      <div class="logo-area">
+        <div class="logo-icon">TM</div>
+        <a href="index.html" class="brand-text">Trade<span>Metrics</span></a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Abrir menú">&equiv;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Terminal</a></li>
+          <li><a href="#articulos">Artículos & Métricas</a></li>
+          <li><a href="herramientas/index.html" class="nav-btn-tool">&Sigma; Calculadoras de Riesgo</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-trading">
+    <div class="container">
+      <span class="badge-hero">&bull; Enfoque Estadístico &bull; Sin Vendehumos</span>
+      <h1>Dominio Cuantitativo y <span>Gestión de Riesgo</span> en los Mercados</h1>
+      <p>
+        El 90% de los operadores fracasan no por falta de análisis técnico, sino por un dimensionamiento erróneo de la posición y la incapacidad de gestionar la esperanza matemática de su sistema.
+      </p>
+      <div class="hero-actions">
+        <a href="herramientas/index.html" class="btn-primary">Calcular Tamaño de Posición &rarr;</a>
+        <a href="#articulos" class="btn-secondary">Explorar Guías de Análisis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AdSense Top Banner -->
+  <div class="container">
+    <div id="ad-top-banner" data-ad-slot="HEADER_BANNER" class="ad-slot-container"></div>
+  </div>
+
+  <!-- Calculadora Rápida Integrada -->
+  <main class="container">
+    <div class="terminal-box">
+      <div class="terminal-box-title">&gt; Terminal de Control de Riesgo Inmediato</div>
+      <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1rem;">
+        Antes de ejecutar cualquier orden en tu broker, ingresa tu capital y Stop Loss. Jamás arriesgues más del 1-2% del balance total por operación.
+      </p>
+      
+      <form id="position-calc-form" class="calc-grid">
+        <div class="form-group">
+          <label for="calc-balance">Balance de la Cuenta ($USD):</label>
+          <input type="number" id="calc-balance" value="10000" min="100" step="100">
+        </div>
+        <div class="form-group">
+          <label for="calc-risk-pct">Riesgo por Operación (%):</label>
+          <input type="number" id="calc-risk-pct" value="1.0" min="0.1" max="10" step="0.1">
+        </div>
+        <div class="form-group">
+          <label for="calc-asset">Activo a Operar:</label>
+          <select id="calc-asset">
+            <option value="forex">Forex (Pares de Divisas)</option>
+            <option value="stocks">Acciones / CFDs de Índices</option>
+            <option value="crypto">Criptoactivos / Futuros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calc-entry">Precio de Entrada:</label>
+          <input type="number" id="calc-entry" value="1.0850" step="0.0001">
+        </div>
+        <div class="form-group">
+          <label for="calc-stoploss">Precio Stop Loss:</label>
+          <input type="number" id="calc-stoploss" value="1.0820" step="0.0001">
+        </div>
+        <div class="form-group">
+          <label for="calc-takeprofit">Precio Take Profit (Objetivo):</label>
+          <input type="number" id="calc-takeprofit" value="1.0920" step="0.0001">
+        </div>
+      </form>
+
+      <div class="calc-results">
+        <div class="result-card">
+          <div class="label">Pérdida Máxima ($)</div>
+          <div id="res-risk-cash" class="value danger">$100.00</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Tamaño Sugerido</div>
+          <div id="res-units" class="value neutral">0.33 Lotes (30 pips)</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Ratio Riesgo / Beneficio</div>
+          <div id="res-rr" class="value">1 : 2.33</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Ganancia Esperada</div>
+          <div id="res-potential-profit" class="value">+$233.33</div>
+        </div>
+      </div>
+      <div style="text-align: right; margin-top: 1rem;">
+        <a href="herramientas/index.html" style="font-size: 0.85rem; font-family: monospace;">Ver simulador avanzado de esperanza matemática y rachas &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Sección de Artículos Clave -->
+    <section id="articulos">
+      <div class="section-title">
+        <h2>Manuales de Investigación & Estrategia</h2>
+        <span style="font-family: monospace; font-size: 0.85rem; color: var(--text-dim);">Artículos Revisados por Analistas</span>
+      </div>
+
+      <div class="grid-cards">
+        <!-- Artículo 1 -->
+        <article class="card-trading">
+          <div>
+            <span class="card-tag">Gestión Monetaria</span>
+            <h3><a href="articulos/gestion-de-riesgo-regla-del-uno-por-ciento.html">La Regla del 1%: Cómo Proteger tu Capital y Evitar la Quiebra Matemática del Trader</a></h3>
+            <p>
+              Análisis cuantitativo de la ruina estadística. Por qué arriesgar un 5% por operación te garantiza la liquidación de la cuenta ante una racha negativa común de mercado.
+            </p>
+          </div>
+          <div class="card-meta">
+            <span>Lectura: 9 min</span>
+            <span>Por: Marc Vidal, CMT</span>
+          </div>
+        </article>
+
+        <!-- Artículo 2 -->
+        <article class="card-trading">
+          <div>
+            <span class="card-tag">Psicotrading</span>
+            <h3><a href="articulos/psicologia-del-trading-sesgos-y-disciplina.html">Psicología del Trading: Superando el FOMO, la Aversión a la Pérdida y el Revenge Trading</a></h3>
+            <p>
+              El sesgo de confirmación y la trampa del coste hundido en la ejecución operativa. Protocolos de desconexión emocional y reglas de cierre forzoso de pantalla.
+            </p>
+          </div>
+          <div class="card-meta">
+            <span>Lectura: 11 min</span>
+            <span>Por: Dra. Elena Sola</span>
+          </div>
+        </article>
+
+        <!-- Artículo 3 -->
+        <article class="card-trading">
+          <div>
+            <span class="card-tag">Metodología de Análisis</span>
+            <h3><a href="articulos/analisis-tecnico-vs-analisis-fundamental-guia.html">Análisis Técnico vs. Fundamental: Cómo Integrar Acción del Precio y Datos Macro</a></h3>
+            <p>
+              Desmontando el debate bizantino. Aprende a utilizar el calendario de tipos de interés de la Fed y BCE como filtro direccional y la estructura de mercado para timing quirúrgico.
+            </p>
+          </div>
+          <div class="card-meta">
+            <span>Lectura: 12 min</span>
+            <span>Por: Carlos Mendoza, CFA</span>
+          </div>
+        </article>
+
+        <!-- Artículo 4 -->
+        <article class="card-trading">
+          <div>
+            <span class="card-tag">Sistemas Cuantitativos</span>
+            <h3><a href="articulos/como-hacer-backtesting-estrategia-trading.html">Guía Maestra de Backtesting: Validación de Sistemas y Detección de Sobreoptimización</a></h3>
+            <p>
+              Protocolo para testear estrategias con datos históricos sin caer en el sesgo de supervivencia ni sobreajuste de parámetros (curve fitting). Métricas de Sharpe y Max Drawdown.
+            </p>
+          </div>
+          <div class="card-meta">
+            <span>Lectura: 14 min</span>
+            <span>Por: Marc Vidal, CMT</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AdSense Mid Content Banner -->
+    <div id="ad-mid-banner" data-ad-slot="ARTICLE_INLINE" class="ad-slot-container"></div>
+
+    <!-- Sección de FAQ -->
+    <section class="faq-section">
+      <div class="section-title">
+        <h2>Preguntas Frecuentes sobre Trading y Gestión de Riesgo</h2>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>¿Por qué es más importante la gestión de riesgo que el porcentaje de acierto (winrate)?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Un operador puede tener un 70% de aciertos y perder dinero si cuando pierde pierde $300 y cuando gana solo gana $100. En cambio, un operador con un modesto 40% de acierto pero un ratio de riesgo/beneficio de 1:3 es altamente rentable a largo plazo gracias a la esperanza matemática positiva.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>¿Qué es el Drawdown y cómo se calcula?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          El Drawdown representa la caída porcentual desde el punto máximo histórico de la cuenta (peak) hasta el punto más bajo subsiguiente (valley). El Max Drawdown mide la resistencia del sistema ante rachas adversas. Recuperar una pérdida del 50% requiere ganar un 100% de la cuenta.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>¿Cuál es el apalancamiento máximo recomendado para principiantes?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Los reguladores como ESMA en la Unión Europea limitan el apalancamiento a un máximo de 1:30 en divisas mayores y 1:20 en índices para clientes minoristas. No obstante, para un operador principiante, se aconseja operar sin sobreapalancar la cuenta, manteniendo el riesgo efectivo total por debajo del 1% del balance por posición.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-main">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>TradeMetrics Lab</h4>
+        <p style="font-size: 0.85rem; color: #94a3b8;">
+          Investigación independiente en mercados de capitales, algoritmos de asignación de riesgo y modelado estadístico para operadores individuales e institucionales.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Herramientas</h4>
+        <ul>
+          <li><a href="herramientas/index.html">Calculadora de Tamaño de Lote</a></li>
+          <li><a href="herramientas/index.html">Simulador de Esperanza Matemática</a></li>
+          <li><a href="herramientas/index.html">Estimador de Racha de Pérdidas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Artículos de Estudio</h4>
+        <ul>
+          <li><a href="articulos/gestion-de-riesgo-regla-del-uno-por-ciento.html">La Regla del 1%</a></li>
+          <li><a href="articulos/psicologia-del-trading-sesgos-y-disciplina.html">Psicología y FOMO</a></li>
+          <li><a href="articulos/analisis-tecnico-vs-analisis-fundamental-guia.html">Técnico vs Fundamental</a></li>
+          <li><a href="articulos/como-hacer-backtesting-estrategia-trading.html">Guía de Backtesting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal & Cumplimiento</h4>
+        <ul>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros & Autoría</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+          <li><a href="politica-de-cookies.html">Política de Cookies</a></li>
+          <li><a href="terminos-y-condiciones.html">Términos y Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Advertencia Legal Amplia YMYL -->
+    <div class="footer-risk-box">
+      <strong>DESCARGO DE RESPONSABILIDAD FINANCIERA (YMYL):</strong> TradeMetrics no es un asesor financiero registrado ni una entidad de intermediación de valores regulada por la CNMV, SEC, FCA o FINRA. Todo el material expuesto en este portal tiene propósitos exclusivos de difusión educativa y simulación estadística. El rendimiento pasado de una estrategia o simulación cuantitativa no es indicativo ni garantiza resultados futuros. Jamás inviertas capital que no estés dispuesto a perder en su totalidad.
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 TradeMetrics Quantitative Research. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- Banner RGPD -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        Utilizamos cookies técnicas y de personalización analítica para garantizar el cálculo estadístico y servir anuncios adaptados a tus intereses a través de Google AdSense y sus socios certificados. Puedes aceptar su uso o consultar nuestra <a href="politica-de-cookies.html">política de cookies</a>.
+      </div>
+      <div class="cookie-actions">
+        <button id="cookie-reject" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Solo Necesarias</button>
+        <button id="cookie-accept" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Aceptar Todas</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/ads-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
